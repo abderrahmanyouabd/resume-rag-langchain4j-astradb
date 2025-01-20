@@ -23,7 +23,7 @@ public class TalkController {
     @PostMapping
     public String TalkWithPdf(@RequestBody String text) {
         var response = conversationalRetrievalChain.execute(text);
-        log.debug("Response is: {}", response);
+        log.info("Response: {}", response);
         return response;
     }
 }
