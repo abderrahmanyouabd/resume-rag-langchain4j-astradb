@@ -10,6 +10,7 @@ import dev.langchain4j.retriever.EmbeddingStoreRetriever;
 import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
 import dev.langchain4j.store.embedding.cassandra.AstraDbEmbeddingConfiguration;
 import dev.langchain4j.store.embedding.cassandra.AstraDbEmbeddingStore;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,14 +22,22 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GeneralConfig {
 
-    private static final String TOKEN = "your_token";
-    private static final String DATABASE_ID = "your_database_id";
-    private static final String REGION = "your_region";
-    private static final String KEYSPACE = "your_keyspace";
-    private static final String TABLE = "your_table";
-    private static final String BASE_URL = "provider_base_url";
-    private static final String API_KEY = "your_api_key";
-    private static final String MODEL_NAME = "your_model_name";
+    @Value("${astra.db.token}")
+    private String TOKEN = "your_token";
+    @Value("${astra.db.databaseId}")
+    private String DATABASE_ID = "your_database_id";
+    @Value("${astra.db.region}")
+    private String REGION = "your_region";
+    @Value("${astra.db.keyspace}")
+    private String KEYSPACE = "your_keyspace";
+    @Value("${astra.db.table}")
+    private String TABLE = "your_table";
+    @Value("${groq.chat.base-url}")
+    private String BASE_URL = "provider_base_url";
+    @Value("${groq.chat.api-key}")
+    private String API_KEY = "your_api_key";
+    @Value("${groq.chat.model-name}")
+    private String MODEL_NAME = "your_model_name";
 
 
     @Bean

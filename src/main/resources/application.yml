@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: resume-talk
+
+astra:
+  db:
+   token: "your_token"
+   databaseId: "your_database_id"
+   region: "your_region"
+   keyspace: "your_keyspace"
+   table: "your_table"
+groq:
+  chat:
+    base-url: "provider-base-url"
+    api-key: "your_api_key"
+    model-name: "your_model_name"
+
