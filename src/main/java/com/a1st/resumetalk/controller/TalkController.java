@@ -1,5 +1,11 @@
 package com.a1st.resumetalk.controller;
 
+import dev.langchain4j.chain.ConversationalRetrievalChain;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -7,5 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: 1.0
  */
 @RestController
+@RequestMapping("/api/v1/talk")
+@RequiredArgsConstructor
+@Slf4j
 public class TalkController {
+
+    private final ConversationalRetrievalChain conversationalRetrievalChain;
+
+    @PostMapping
+    public String TalkWithPdf(@RequestBody String text) {
+        var response = conversationalRetrievalChain.execute(text);
+        log.debug("Response is: {}", response);
+        return response;
+    }
 }
