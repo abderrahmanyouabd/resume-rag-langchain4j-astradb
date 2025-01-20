@@ -4,14 +4,14 @@ spring:
 
 astra:
   db:
-   token: "your_token"
-   databaseId: "your_database_id"
-   region: "your_region"
-   keyspace: "your_keyspace"
-   table: "your_table"
+   token: ${TOKEN}
+   databaseId: ${DATABASE_ID}
+   region: ${REGION}
+   keyspace: ${KEYSPACE}
+   table: ${TABLE}
 groq:
   chat:
-    base-url: "provider-base-url"
-    api-key: "your_api_key"
-    model-name: "your_model_name"
+    base-url: ${BASE_URL}
+    api-key: ${API_KEY}
+    model-name: ${MODEL_NAME}
 
